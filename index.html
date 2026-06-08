@@ -2298,6 +2298,12 @@
     </div>
 
     <script>
+        // ========================================
+        // GOOGLE SHEETS CONFIGURATION
+        // Replace 'YOUR_GOOGLE_SCRIPT_URL' with your actual Google Apps Script Web App URL
+        // ========================================
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw-JKQfqSfvAB0O1HU8RhiBWLF1_vWj5WJ_Zvy_QunUpy9BQA9d_KxTBAue8tg5LnB8Rw/exec';
+
         // ==================== ENVELOPE & NAME FLOW ====================
 
         function openEnvelope() {
@@ -2475,8 +2481,33 @@
 
         // ==================== RSVP FORM ====================
         
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('rsvpName').value,
+                email: document.getElementById('email').value,
+                attendance: document.getElementById('attendance').value,
+                guests: document.getElementById('guests').value,
+                message: document.getElementById('message').value,
+                type: 'rsvp'
+            };
+
+            // Send RSVP data to Google Sheets
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                console.log('RSVP sent to Google Sheets');
+            } catch (error) {
+                console.error('Error saving RSVP:', error);
+            }
+
             const successMsg = document.getElementById('successMessage');
             successMsg.classList.add('show');
             fireConfetti();
