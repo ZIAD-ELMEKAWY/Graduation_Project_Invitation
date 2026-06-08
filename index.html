@@ -1307,7 +1307,7 @@
 
         .members-row {
             display: flex;
-            gap: 1.2rem;
+            gap: 2rem;
             justify-content: flex-start;
             min-width: min-content;
             padding: 0.5rem;
@@ -1316,16 +1316,22 @@
         /* Member Cards - Glassmorphism with colored accents */
         .member-card {
             flex: 0 0 auto;
-            width: 150px;
+            min-width: 220px;
+            max-width: 280px;
+            min-height: 320px;
             background: var(--dark-card);
-            border-radius: 16px;
-            padding: 1.8rem 1.2rem;
+            border-radius: 20px;
+            padding: 2.5rem 3rem;
             text-align: center;
             position: relative;
             overflow: hidden;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             backdrop-filter: blur(10px);
             border: 1px solid var(--dark-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .member-card:hover {
@@ -1364,15 +1370,15 @@
 
         /* Member avatar - smaller circular with icon */
         .member-card-avatar {
-            width: 55px;
-            height: 55px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: white;
             position: relative;
@@ -1392,7 +1398,7 @@
         /* Member name and role */
         .member-card h5 {
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--dark-text);
             margin-bottom: 0.4rem;
@@ -1401,7 +1407,7 @@
 
         .member-card p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             color: var(--dark-text-muted);
             margin: 0;
             line-height: 1.3;
@@ -1419,7 +1425,7 @@
         .member-card--with-image {
             position: relative;
             overflow: hidden;
-            min-height: 200px;
+            min-height: 320px;
         }
 
         .member-card--with-image::before {
@@ -1776,14 +1782,16 @@
             }
 
             .member-card {
-                width: 110px;
-                padding: 1.2rem 0.8rem;
+                min-width: 160px;
+                max-width: 300px;
+                min-height: 280px;
+                padding: 2rem 1.5rem;
             }
 
             .member-card-avatar {
-                width: 50px;
-                height: 50px;
-                font-size: 0.85rem;
+                width: 70px;
+                height: 70px;
+                font-size: 1.4rem;
             }
 
             .members-scroll-wrapper {
@@ -1803,6 +1811,7 @@
             transform: translateY(0);
         }
     </style>
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
