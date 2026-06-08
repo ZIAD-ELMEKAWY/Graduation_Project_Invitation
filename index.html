@@ -1069,7 +1069,117 @@
             50% { transform: scale(1.2); }
         }
 
-        /* Modal */
+        /* Team Section */
+        .team-section {
+            background: var(--light);
+            padding: 6rem 5%;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(30, 58, 95, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .member-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(30, 58, 95, 0.4);
+        }
+
+        .member-initials {
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            position: relative;
+        }
+
+        .member-role-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), #b8941f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 3;
+        }
+
+        .member-avatar:hover .member-role-overlay {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .member-avatar:hover .member-initials {
+            opacity: 0;
+        }
+
+        .member-role {
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.3;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .team-member h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+
+        .team-member > p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* 
+/* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -1281,6 +1391,7 @@
         }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1294,7 +1405,7 @@
             <div class="envelope-paper">
                 <div class="paper-text">
                     <div style="font-size: 24px; margin-bottom: 10px;">🎓</div>
-                    Graduation Project<br>Defense Invitation
+                    Graduation Project<br>Invitation
                     <div class="name-preview" id="previewName"></div>
                 </div>
             </div>
@@ -1416,6 +1527,9 @@
                         <p>Senior 2026</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
         <!-- Team Section -->
         <section class="team-section" id="team">
             <div class="section-header fade-in">
@@ -1424,54 +1538,100 @@
             </div>
             <div class="team-grid">
                 <div class="team-member fade-in">
-                    <div class="member-avatar">ZE</div>
+                    <div class="member-avatar">
+                        <span class="member-initials">ZE</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">IoT Hardware</span>
+                        </div>
+                    </div>
                     <h4>Ziad Elmekawy</h4>
                     <p>Team Member</p>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-avatar">AM</div>
-                    <h4>Arwa Meky</h4>
+                    <div class="member-avatar">
+                        <span class="member-initials">ME</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">IoT Hardware</span>
+                        </div>
+                    </div>
+                    <h4>Mahmoud Elsaey</h4>
                     <p>Team Member</p>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-avatar">ZE</div>
+                    <div class="member-avatar">
+                        <span class="member-initials">ZE</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">Backend Developer</span>
+                        </div>
+                    </div>
                     <h4>Ziad Elbadawy</h4>
                     <p>Team Member</p>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-avatar">HZ</div>
+                    <div class="member-avatar">
+                        <span class="member-initials">HZ</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">Backend Developer</span>
+                        </div>
+                    </div>
                     <h4>Hagar Zaki</h4>
                     <p>Team Member</p>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-avatar">ST</div>
-                    <h4>Sarah Tamer</h4>
+                    <div class="member-avatar">
+                        <span class="member-initials">AM</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">Mobile App Developer</span>
+                        </div>
+                    </div>
+                    <h4>Arwa Meky</h4>
                     <p>Team Member</p>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-avatar">AI</div>
-                    <h4>Abdallah Ismail</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">AH</div>
+                    <div class="member-avatar">
+                        <span class="member-initials">AH</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">UI/UX Developer</span>
+                        </div>
+                    </div>
                     <h4>Ahmed Hekal</h4>
                     <p>Team Member</p>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-avatar">AK</div>
+                    <div class="member-avatar">
+                        <span class="member-initials">AK</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">Frontend Developer</span>
+                        </div>
+                    </div>
                     <h4>Ahmed Kamel</h4>
                     <p>Team Member</p>
                 </div>
                 <div class="team-member fade-in">
-                    <div class="member-avatar">ME</div>
-                    <h4>Mahmoud Elsaey</h4>
+                    <div class="member-avatar">
+                        <span class="member-initials">ST</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">Frontend Developer</span>
+                        </div>
+                    </div>
+                    <h4>Sarah Tamer</h4>
+                    <p>Team Member</p>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">
+                        <span class="member-initials">AI</span>
+                        <div class="member-role-overlay">
+                            <span class="member-role">Data Analyst</span>
+                        </div>
+                    </div>
+                    <h4>Abdallah Ismail</h4>
                     <p>Team Member</p>
                 </div>
             </div>
         </section>
 
         <!-- Schedule Timeline -->
+<!-- Schedule Timeline -->
         <section class="timeline" id="schedule">
             <div class="section-header fade-in">
                 <h2>Event Schedule</h2>
@@ -1564,13 +1724,6 @@
                     <div class="gallery-overlay">
                         <h4>Data Analysis</h4>
                         <p>Machine learning model training and health insights</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in" onclick="openModal(this)">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Field Testing">
-                    <div class="gallery-overlay">
-                        <h4>Field Testing</h4>
-                        <p>Real-world clinical trials and user feedback</p>
                     </div>
                 </div>
                 <div class="gallery-item fade-in" onclick="openModal(this)">
