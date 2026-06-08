@@ -550,92 +550,116 @@
         }
 
         /* Countdown */
+        /* Countdown */
         .countdown-section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
             background: var(--dark);
-            padding: 4rem 2rem;
-            text-align: center;
         }
 
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .countdown-item {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            min-width: 100px;
-            transition: transform 0.3s;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            min-width: 140px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.3), transparent);
         }
 
         .countdown-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
+            transform: translateY(-8px);
+            border-color: rgba(201, 162, 39, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .countdown-number {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--secondary);
             font-weight: 700;
             display: block;
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 10px rgba(201, 162, 39, 0.2);
         }
 
         .countdown-label {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.5);
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            font-weight: 500;
         }
 
-        /* Sections */
-        section {
-            padding: 6rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Countdown Responsive */
+        @media (max-width: 768px) {
+            .countdown-container {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                min-width: 100px;
+                padding: 1.8rem 1.2rem;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.65rem;
+                letter-spacing: 2px;
+            }
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
+        @media (max-width: 480px) {
+            .countdown-item {
+                min-width: 70px;
+                padding: 1.2rem 0.8rem;
+                border-radius: 12px;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .countdown-label {
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+            }
         }
 
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--secondary);
-            margin: 1rem auto 0;
-        }
-
-        .section-header p {
-            color: #64748b;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* About */
+/* About */
         .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
             align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .about-image {
@@ -643,6 +667,8 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 700px;
         }
 
         .about-image img {
@@ -657,6 +683,11 @@
             transform: scale(1.05);
         }
 
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
         .about-content h3 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
@@ -666,13 +697,17 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
             color: #475569;
+            text-align: center;
         }
 
         .project-meta {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .meta-item {
@@ -706,6 +741,8 @@
         .timeline {
             background: var(--light);
             position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .timeline::before {
@@ -786,12 +823,16 @@
         /* Gallery */
         .gallery {
             background: white;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .gallery-item {
@@ -851,6 +892,7 @@
             padding: 5rem 3rem;
             position: relative;
             overflow: hidden;
+            max-width: 900px;
         }
 
         .rsvp::before {
@@ -961,10 +1003,16 @@
 
         /* Location */
         .location-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 3rem;
             align-items: center;
+        }
+
+        .location-details {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
         }
 
         .location-details h3 {
@@ -976,6 +1024,7 @@
             line-height: 1.8;
             color: #475569;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .location-meta {
@@ -1021,6 +1070,8 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
         }
 
         .map-placeholder {
@@ -1069,116 +1120,243 @@
             50% { transform: scale(1.2); }
         }
 
-        /* Team Section */
+        /* Team Section - Layout Preview Style */
         .team-section {
             background: var(--light);
             padding: 6rem 5%;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .team-member {
+        .section-label {
+            display: block;
             text-align: center;
-            padding: 2rem 1.5rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .team-member:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-        }
-
-        .member-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary), #2c5282);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
             font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 8px 30px rgba(30, 58, 95, 0.3);
-            transition: all 0.4s ease;
-        }
-
-        .member-avatar:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 40px rgba(30, 58, 95, 0.4);
-        }
-
-        .member-initials {
-            transition: opacity 0.3s ease;
-            z-index: 2;
-            position: relative;
-        }
-
-        .member-role-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--secondary), #b8941f);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 3;
-        }
-
-        .member-avatar:hover .member-role-overlay {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .member-avatar:hover .member-initials {
-            opacity: 0;
-        }
-
-        .member-role {
-            color: white;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.3;
-            padding: 0 10px;
-            text-align: center;
-        }
-
-        .team-member h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: var(--primary);
-        }
-
-        .team-member > p {
+            letter-spacing: 3px;
             color: #94a3b8;
-            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .supervisors-header {
+            margin-bottom: 0.5rem;
+        }
+
+        .supervisors-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+
+        .supervisor-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 3rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+            min-width: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .supervisor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .supervisor-card--empty {
+            opacity: 0.6;
+        }
+
+        .supervisor-card--empty .supervisor-avatar {
+            background: #f1f5f9;
+            color: #cbd5e1;
+        }
+
+        .supervisor-card--empty .supervisor-info h4 {
+            color: #94a3b8;
+        }
+
+        .supervisor-card--empty .supervisor-info p {
+            color: #cbd5e1;
+        }
+
+        .supervisor-avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3b82f6;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .supervisor-avatar--add {
+            background: #f8fafc;
+            color: #cbd5e1;
+            font-size: 2.5rem;
+            font-weight: 300;
+            box-shadow: none;
+            border: 2px dashed #e2e8f0;
+        }
+
+        .supervisor-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+        }
+
+        .supervisor-info p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #64748b;
             margin: 0;
         }
 
-        /* 
+        .members-header {
+            margin-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .members-scroll-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .members-scroll-wrapper:active {
+            cursor: grabbing;
+        }
+
+        .members-scroll-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .members-row {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: flex-start;
+            min-width: min-content;
+            padding: 0.5rem;
+        }
+
+        .member-card {
+            flex: 0 0 auto;
+            width: 130px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .member-card-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .member-card h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .member-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .scroll-hint {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #cbd5e1;
+            letter-spacing: 1px;
+            transition: opacity 0.5s ease;
+            cursor: pointer;
+        }
+
+        .scroll-hint:hover {
+            color: var(--secondary);
+        }
+
+        .scroll-hint span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .supervisors-grid {
+                gap: 1rem;
+            }
+
+            .supervisor-card {
+                padding: 2rem 1.5rem;
+                min-width: 160px;
+            }
+
+            .supervisor-avatar {
+                width: 70px;
+                height: 70px;
+                font-size: 1.4rem;
+            }
+
+            .member-card {
+                width: 110px;
+                padding: 1.2rem 0.8rem;
+            }
+
+            .member-card-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 0.85rem;
+            }
+        }/* 
 /* Modal */
         .modal {
             display: none;
@@ -1339,9 +1517,23 @@
                 display: block;
             }
 
-            .about-grid,
+            .about-grid {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-image {
+                max-width: 100%;
+            }
+
             .location-info {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .location-map {
+                max-width: 100%;
+                height: 300px;
             }
 
             .form-row {
@@ -1376,6 +1568,38 @@
             .countdown-number {
                 font-size: 2rem;
             }
+
+            .supervisors-grid {
+                gap: 1rem;
+            }
+
+            .supervisor-card {
+                padding: 2rem 1.5rem;
+                min-width: 160px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .supervisor-avatar {
+                width: 70px;
+                height: 70px;
+                font-size: 1.4rem;
+            }
+
+            .member-card {
+                width: 110px;
+                padding: 1.2rem 0.8rem;
+            }
+
+            .member-card-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 0.85rem;
+            }
+
+            .members-scroll-wrapper {
+                padding: 0 1rem;
+            }
         }
 
         /* Scroll animations */
@@ -1390,6 +1614,8 @@
             transform: translateY(0);
         }
     </style>
+<base target="_blank">
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 </head>
@@ -1434,7 +1660,7 @@
     <div class="main-invitation" id="mainInvitation">
 
         <!-- Navigation -->
-        <nav id="navbar">
+<nav id="navbar">
             <a href="#" class="logo">Senior 2026</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">Project</a></li>
@@ -1447,8 +1673,7 @@
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
 
-        <!-- Hero Section -->
-        <section class="hero" id="home">
+<section class="hero" id="home">
             <div class="hero-content">
                 <p class="hero-greeting" id="heroGreeting">Dear Guest,</p>
                 <p class="hero-subtitle">You Are Cordially Invited To</p>
@@ -1474,29 +1699,34 @@
             </div>
         </section>
 
-        <!-- Countdown -->
-        <div class="countdown-section" id="countdown">
-            <div class="countdown-container">
-                <div class="countdown-item fade-in">
-                    <span class="countdown-number" id="days">00</span>
-                    <div class="countdown-label">Days</div>
-                </div>
-                <div class="countdown-item fade-in">
-                    <span class="countdown-number" id="hours">00</span>
-                    <div class="countdown-label">Hours</div>
-                </div>
-                <div class="countdown-item fade-in">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <div class="countdown-label">Minutes</div>
-                </div>
-                <div class="countdown-item fade-in">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <div class="countdown-label">Seconds</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- About Project -->
+<!-- Countdown Section -->
+<section class="countdown-section" id="countdown">
+    <div class="section-header fade-in">
+        <h2 style="color: white;">Countdown to Event</h2>
+        <p style="color: rgba(255,255,255,0.6);">Mark your calendar for this special day</p>
+    </div>
+    <div class="countdown-container">
+        <div class="countdown-item fade-in">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item fade-in">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item fade-in">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item fade-in">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+        </div>
+    </div>
+</section>
+
+<!-- About Project -->
         <section class="about-grid" id="about">
             <div class="about-image fade-in">
                 <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="AURA Smart Health Monitor">
@@ -1530,109 +1760,117 @@
             </div>
         </section>
 
-        <!-- Team Section -->
+
+
+<!-- Team Section -->
         <section class="team-section" id="team">
-            <div class="section-header fade-in">
-                <h2>Meet The Team</h2>
-                <p>The brilliant minds behind AURA Smart Health Monitor</p>
+            <div class="section-header fade-in" style="text-align: center;">
+                <h2 style="text-align: center;">Meet The Team</h2>
+                <p style="text-align: center; margin-left: auto; margin-right: auto;">The brilliant minds behind AURA Smart Health Monitor</p>
             </div>
-            <div class="team-grid">
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">ZE</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">IoT Hardware</span>
-                        </div>
+
+            <!-- Supervisors -->
+            <div class="supervisors-header fade-in">
+                <span class="section-label">Supervisors</span>
+            </div>
+            <div class="supervisors-grid">
+                <div class="supervisor-card fade-in">
+                    <div class="supervisor-avatar">
+                        <span class="supervisor-initials">HA</span>
                     </div>
-                    <h4>Ziad Elmekawy</h4>
-                    <p>Team Member</p>
+                    <div class="supervisor-info">
+                        <h4>Dr. Hanan Amer</h4>
+                        <p>Project Supervisor</p>
+                    </div>
                 </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">ME</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">IoT Hardware</span>
-                        </div>
+                <div class="supervisor-card fade-in">
+                    <div class="supervisor-avatar">
+                        <span class="supervisor-initials">NM</span>
                     </div>
-                    <h4>Mahmoud Elsaey</h4>
-                    <p>Team Member</p>
+                    <div class="supervisor-info">
+                        <h4>Eng. Nardin Maichel</h4>
+                        <p>Co-Supervisor</p>
+                    </div>
                 </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">ZE</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">Backend Developer</span>
+            </div>
+
+            <!-- Team Members -->
+            <div class="members-header fade-in">
+                <span class="section-label">Team Members</span>
+            </div>
+            <div class="members-scroll-wrapper">
+                <div class="members-row">
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>ZE</span>
                         </div>
+                        <h5>Ziad Elmekawy</h5>
+                        <p>IoT Hardware</p>
                     </div>
-                    <h4>Ziad Elbadawy</h4>
-                    <p>Team Member</p>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>ME</span>
+                        </div>
+                        <h5>Mahmoud Elsaey</h5>
+                        <p>IoT Hardware</p>
+                    </div>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>ZE</span>
+                        </div>
+                        <h5>Ziad Elbadawy</h5>
+                        <p>Backend Developer</p>
+                    </div>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>HZ</span>
+                        </div>
+                        <h5>Hagar Zaki</h5>
+                        <p>Backend Developer</p>
+                    </div>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>AM</span>
+                        </div>
+                        <h5>Arwa Meky</h5>
+                        <p>Mobile App Developer</p>
+                    </div>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>AH</span>
+                        </div>
+                        <h5>Ahmed Hekal</h5>
+                        <p>UI/UX Developer</p>
+                    </div>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>AK</span>
+                        </div>
+                        <h5>Ahmed Kamel</h5>
+                        <p>Frontend Developer</p>
+                    </div>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>ST</span>
+                        </div>
+                        <h5>Sarah Tamer</h5>
+                        <p>Frontend Developer</p>
+                    </div>
+                    <div class="member-card fade-in">
+                        <div class="member-card-avatar">
+                            <span>AI</span>
+                        </div>
+                        <h5>Abdallah Ismail</h5>
+                        <p>Data Analyst</p>
+                    </div>
                 </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">HZ</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">Backend Developer</span>
-                        </div>
-                    </div>
-                    <h4>Hagar Zaki</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">AM</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">Mobile App Developer</span>
-                        </div>
-                    </div>
-                    <h4>Arwa Meky</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">AH</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">UI/UX Developer</span>
-                        </div>
-                    </div>
-                    <h4>Ahmed Hekal</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">AK</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">Frontend Developer</span>
-                        </div>
-                    </div>
-                    <h4>Ahmed Kamel</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">ST</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">Frontend Developer</span>
-                        </div>
-                    </div>
-                    <h4>Sarah Tamer</h4>
-                    <p>Team Member</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">
-                        <span class="member-initials">AI</span>
-                        <div class="member-role-overlay">
-                            <span class="member-role">Data Analyst</span>
-                        </div>
-                    </div>
-                    <h4>Abdallah Ismail</h4>
-                    <p>Team Member</p>
+                <div class="scroll-hint" id="scrollHint" onclick="scrollMembers()">
+                    <span style="cursor: pointer;">&lt; drag or scroll to navigate &gt;</span>
                 </div>
             </div>
         </section>
 
-        <!-- Schedule Timeline -->
-<!-- Schedule Timeline -->
-        <section class="timeline" id="schedule">
+<section class="timeline" id="schedule">
             <div class="section-header fade-in">
                 <h2>Event Schedule</h2>
                 <p>Here's what to expect during the graduation project presentation</p>
@@ -1684,7 +1922,9 @@
             </div>
         </section>
 
-        <!-- Gallery -->
+        
+
+<!-- Gallery -->
         <section class="gallery" id="gallery">
             <div class="section-header fade-in">
                 <h2>Project Gallery</h2>
@@ -1736,7 +1976,9 @@
             </div>
         </section>
 
-        <!-- Location -->
+        
+
+<!-- Location -->
         <section id="location">
             <div class="section-header fade-in">
                 <h2>Venue & Location</h2>
@@ -1785,7 +2027,9 @@
             </div>
         </section>
 
-        <!-- RSVP -->
+        
+
+<!-- RSVP -->
         <section class="rsvp" id="rsvp">
             <h2>Confirm Your Attendance</h2>
             <p>Please RSVP by July 5, 2026 so we can prepare accordingly</p>
@@ -1835,7 +2079,9 @@
             </form>
         </section>
 
-        <!-- Footer -->
+        
+
+<!-- Footer -->
         <footer>
             <p>Made with <span class="heart">♥</span> by AURA Team | Seniors 2026</p>
             <p style="margin-top: 0.5rem; opacity: 0.4;">Electronics and Telecommunication Department</p>
@@ -2116,6 +2362,80 @@
                 }
             });
         });
-    </script>
+    
+        // ==================== HORIZONTAL SCROLL FOR TEAM MEMBERS ====================
+
+        const membersWrapper = document.querySelector('.members-scroll-wrapper');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        membersWrapper.addEventListener('mousedown', (e) => {
+            isDown = true;
+            membersWrapper.style.cursor = 'grabbing';
+            startX = e.pageX - membersWrapper.offsetLeft;
+            scrollLeft = membersWrapper.scrollLeft;
+        });
+
+        membersWrapper.addEventListener('mouseleave', () => {
+            isDown = false;
+            membersWrapper.style.cursor = 'grab';
+        });
+
+        membersWrapper.addEventListener('mouseup', () => {
+            isDown = false;
+            membersWrapper.style.cursor = 'grab';
+        });
+
+        membersWrapper.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - membersWrapper.offsetLeft;
+            const walk = (x - startX) * 2;
+            membersWrapper.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch support for mobile
+        membersWrapper.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - membersWrapper.offsetLeft;
+            scrollLeft = membersWrapper.scrollLeft;
+        }, {passive: true});
+
+        membersWrapper.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX - membersWrapper.offsetLeft;
+            const walk = (x - startX) * 2;
+            membersWrapper.scrollLeft = scrollLeft - walk;
+        }, {passive: true});
+
+        // Scroll hint click functionality
+        let scrollDirection = 1;
+        function scrollMembers() {
+            const maxScroll = membersWrapper.scrollWidth - membersWrapper.clientWidth;
+            if (membersWrapper.scrollLeft >= maxScroll - 10) {
+                scrollDirection = -1;
+            } else if (membersWrapper.scrollLeft <= 10) {
+                scrollDirection = 1;
+            }
+            membersWrapper.scrollBy({
+                left: 300 * scrollDirection,
+                behavior: 'smooth'
+            });
+        }
+
+        // Auto-scroll hint animation
+        function animateScrollHint() {
+            const hint = document.getElementById('scrollHint');
+            if (hint) {
+                hint.style.opacity = '0.6';
+                setTimeout(() => {
+                    hint.style.opacity = '1';
+                }, 1000);
+            }
+        }
+        setInterval(animateScrollHint, 2000);
+
+</script>
+
+    </div>
 </body>
 </html>
