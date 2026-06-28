@@ -1133,425 +1133,6 @@
             50% { transform: scale(1.2); }
         }
 
-        /* ============================================================
-           NEW DARK THEME TEAM SECTION - MATCHING THE IMAGE STYLE
-           ============================================================ */
-
-        .team-section {
-            background: var(--dark-bg);
-            padding: 6rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        /* Section headers like "SUPERVISORS" and "TEAM MEMBERS" */
-        .section-label {
-            display: block;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--dark-text-muted);
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .section-label::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--blue-glow), transparent);
-            margin: 0.8rem auto 0;
-        }
-
-        /* Supervisor Cards - Glassmorphism with gradient borders */
-        .supervisors-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto 4rem;
-        }
-
-        .supervisor-card {
-            background: var(--dark-card);
-            border-radius: 20px;
-            padding: 2.5rem 3rem;
-            text-align: center;
-            min-width: 220px;
-            max-width: 280px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Gradient border effect using pseudo-element */
-        .supervisor-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            padding: 1.5px;
-            background: linear-gradient(135deg, var(--blue-glow), var(--purple-glow));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-
-        .supervisor-card:hover::before {
-            opacity: 1;
-        }
-
-        .supervisor-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15), 
-                        0 0 60px rgba(139, 92, 246, 0.1);
-        }
-
-        /* Supervisor avatar - circular with colored background */
-        .supervisor-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            position: relative;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Blue gradient for first supervisor */
-        .supervisor-card:nth-child(1) .supervisor-avatar {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            color: white;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        /* Purple gradient for second supervisor */
-        .supervisor-card:nth-child(2) .supervisor-avatar {
-            background: linear-gradient(135deg, #6b21a8, #8b5cf6);
-            color: white;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
-        }
-
-        /* Supervisor info */
-        .supervisor-info h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.4rem;
-        }
-
-        .supervisor-info p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: var(--blue-glow);
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .supervisor-card:nth-child(2) .supervisor-info p {
-            color: var(--purple-glow);
-        }
-
-        /* Decorative line under role */
-        .supervisor-info::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--blue-glow), transparent);
-            margin: 0.8rem auto 0;
-            border-radius: 2px;
-        }
-
-        .supervisor-card:nth-child(2) .supervisor-info::after {
-            background: linear-gradient(90deg, var(--purple-glow), transparent);
-        }
-
-        /* Team Members - Horizontal scroll row */
-        .members-scroll-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow-x: auto;
-            overflow-y: hidden;
-            padding-bottom: 1rem;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            cursor: grab;
-            user-select: none;
-        }
-
-        .members-scroll-wrapper::-webkit-scrollbar {
-            display: none;
-        }
-
-        .members-scroll-wrapper:active {
-            cursor: grabbing;
-        }
-
-        .members-row {
-            display: flex;
-            gap: 2rem;
-            justify-content: flex-start;
-            min-width: min-content;
-            padding: 0.5rem;
-        }
-
-        /* Member Cards - Glassmorphism with colored accents */
-        .member-card {
-            flex: 0 0 auto;
-            min-width: 220px;
-            max-width: 280px;
-            min-height: 320px;
-            background: var(--dark-card);
-            border-radius: 20px;
-            padding: 2.5rem 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--dark-border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .member-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Colored top border accent for each member card */
-        .member-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            border-radius: 16px 16px 0 0;
-            opacity: 0.8;
-            transition: opacity 0.3s ease, height 0.3s ease;
-        }
-
-        .member-card:hover::before {
-            opacity: 1;
-            height: 4px;
-        }
-
-        /* Different colors for each member card */
-        .member-card:nth-child(1)::before { background: linear-gradient(90deg, var(--blue-glow), var(--cyan-glow)); }
-        .member-card:nth-child(2)::before { background: linear-gradient(90deg, var(--blue-glow), var(--cyan-glow)); }
-        .member-card:nth-child(3)::before { background: linear-gradient(90deg, var(--green-glow), var(--cyan-glow)); }
-        .member-card:nth-child(4)::before { background: linear-gradient(90deg, var(--green-glow), var(--cyan-glow)); }
-        .member-card:nth-child(5)::before { background: linear-gradient(90deg, var(--purple-glow), var(--pink-glow)); }
-        .member-card:nth-child(6)::before { background: linear-gradient(90deg, var(--pink-glow), var(--purple-glow)); }
-        .member-card:nth-child(7)::before { background: linear-gradient(90deg, var(--yellow-glow), var(--orange-glow)); }
-        .member-card:nth-child(8)::before { background: linear-gradient(90deg, var(--yellow-glow), var(--orange-glow)); }
-        .member-card:nth-child(9)::before { background: linear-gradient(90deg, var(--cyan-glow), var(--blue-glow)); }
-
-        /* Member avatar - smaller circular with icon */
-        .member-card-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            position: relative;
-        }
-
-        /* Different avatar colors matching the card accent */
-        .member-card:nth-child(1) .member-card-avatar { background: linear-gradient(135deg, #1e40af, #3b82f6); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-        .member-card:nth-child(2) .member-card-avatar { background: linear-gradient(135deg, #1e40af, #3b82f6); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-        .member-card:nth-child(3) .member-card-avatar { background: linear-gradient(135deg, #059669, #10b981); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
-        .member-card:nth-child(4) .member-card-avatar { background: linear-gradient(135deg, #059669, #10b981); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
-        .member-card:nth-child(5) .member-card-avatar { background: linear-gradient(135deg, #7c3aed, #8b5cf6); box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); }
-        .member-card:nth-child(6) .member-card-avatar { background: linear-gradient(135deg, #db2777, #ec4899); box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
-        .member-card:nth-child(7) .member-card-avatar { background: linear-gradient(135deg, #d97706, #f59e0b); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
-        .member-card:nth-child(8) .member-card-avatar { background: linear-gradient(135deg, #d97706, #f59e0b); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
-        .member-card:nth-child(9) .member-card-avatar { background: linear-gradient(135deg, #0891b2, #06b6d4); box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); }
-
-        /* Member name and role */
-        .member-card h5 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.4rem;
-            line-height: 1.3;
-        }
-
-        .member-card p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: var(--dark-text-muted);
-            margin: 0;
-            line-height: 1.3;
-        }
-
-        /* Colored role text matching the card accent */
-        .member-card:nth-child(1) p, .member-card:nth-child(2) p { color: var(--blue-glow); }
-        .member-card:nth-child(3) p, .member-card:nth-child(4) p { color: var(--green-glow); }
-        .member-card:nth-child(5) p { color: var(--purple-glow); }
-        .member-card:nth-child(6) p { color: var(--pink-glow); }
-        .member-card:nth-child(7) p, .member-card:nth-child(8) p { color: var(--yellow-glow); }
-        .member-card:nth-child(9) p { color: var(--cyan-glow); }
-
-        /* Member card with image background - hover reveal */
-        .member-card--with-image {
-            position: relative;
-            overflow: hidden;
-            min-height: 320px;
-        }
-
-        .member-card--with-image::before {
-            z-index: 2;
-        }
-
-        .member-card-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: cover;
-            background-position: center 20%;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            z-index: 0;
-            transition: all 0.5s ease;
-            border-radius: 16px;
-            filter: brightness(0.7);
-        }
-
-        .member-card--with-image:hover .member-card-bg {
-            filter: brightness(0.4);
-            transform: scale(1.05);
-        }
-
-        /* Hide avatar and text by default, show on hover at bottom */
-        .member-card--with-image .member-card-avatar {
-            display: none;
-        }
-
-        .member-card--with-image .member-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
-            z-index: 2;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-            border-radius: 0 0 16px 16px;
-        }
-
-        .member-card--with-image:hover .member-info {
-            transform: translateY(0);
-        }
-
-        .member-card--with-image .member-info h5 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.3rem;
-            line-height: 1.3;
-        }
-
-        .member-card--with-image .member-info p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            color: var(--blue-glow);
-            margin: 0;
-            line-height: 1.3;
-        }
-
-
-        /* Decorative line under role */
-        .member-card::after {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--blue-glow), transparent);
-            margin: 0.6rem auto 0;
-            border-radius: 2px;
-            opacity: 0.6;
-            transition: width 0.3s ease, opacity 0.3s ease;
-        }
-
-        .member-card:hover::after {
-            width: 50px;
-            opacity: 1;
-        }
-
-        /* Scroll hint */
-        .scroll-hint {
-            text-align: center;
-            margin-top: 1.5rem;
-            font-size: 0.75rem;
-            color: var(--dark-text-muted);
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .scroll-hint:hover {
-            color: var(--blue-glow);
-        }
-
-        .scroll-hint span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Background subtle pattern for team section */
-        .team-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .team-section > * {
-            position: relative;
-            z-index: 1;
-        }
-
         /* Modal */
         .modal {
             display: none;
@@ -1817,6 +1398,7 @@
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1888,7 +1470,7 @@
                     "AURA Smart Health Monitor"
                 </div>
                 <div class="hero-date">
-                    📅 July 11, 2026 &nbsp;|&nbsp; 🕐 11:00 AM
+                    📅 July 7, 2026 &nbsp;|&nbsp; 🕐 9:00 AM
                 </div>
             </div>
             <div class="scroll-indicator" onclick="document.getElementById('countdown').scrollIntoView({behavior: 'smooth'})">
@@ -1962,111 +1544,15 @@
 
 
 <!-- Team Section - DARK THEME STYLE -->
-        <section class="team-section" id="team" style="padding-top: 4rem;">
-            <div class="section-header fade-in" style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="color: white; text-align: center; margin-bottom: 0.3rem;">Meet The Team</h2>
-                <p style="color: var(--dark-text-muted); text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 0;">The brilliant minds behind AURA Smart Health Monitor</p>
-            </div>
-
-            <!-- Supervisors -->
-            <div class="supervisors-header fade-in" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
-                <span class="section-label">Supervisors</span>
-            </div>
-            <div class="supervisors-grid">
-                <div class="supervisor-card fade-in">
-                    <div class="supervisor-avatar">
-                        <span class="supervisor-initials">HA</span>
-                    </div>
-                    <div class="supervisor-info">
-                        <h4>Dr. Hanan Amer</h4>
-                        <p>Project Supervisor</p>
-                    </div>
-                </div>
-                <div class="supervisor-card fade-in">
-                    <div class="supervisor-avatar">
-                        <span class="supervisor-initials">NM</span>
-                    </div>
-                    <div class="supervisor-info">
-                        <h4>Eng. Nardin Maichel</h4>
-                        <p>Co-Supervisor</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Members -->
-            <div class="members-header fade-in">
-                <span class="section-label">Team Members</span>
-            </div>
-            <div class="members-scroll-wrapper">
-                <div class="members-row">
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('ziad_elmekawy.png');"></div>
-                        <div class="member-info">
-                            <h5>Ziad Elmekawy</h5>
-                            <p>IoT Hardware</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('mahmoud_elsaey.png');"></div>
-                        <div class="member-info">
-                            <h5>Mahmoud Elsaey</h5>
-                            <p>IoT Hardware</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('ziad_elbadawy.png');"></div>
-                        <div class="member-info">
-                            <h5>Ziad Elbadawy</h5>
-                            <p>Backend Developer</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('hagar_zaki.png');"></div>
-                        <div class="member-info">
-                            <h5>Hagar Zaki</h5>
-                            <p>Backend Developer</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('arwa_meky.png');"></div>
-                        <div class="member-info">
-                            <h5>Arwa Meky</h5>
-                            <p>Mobile App Developer</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('ahmed_hekal.png');"></div>
-                        <div class="member-info">
-                            <h5>Ahmed Hekal</h5>
-                            <p>UI/UX Developer</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('ahmed_kamel.png');"></div>
-                        <div class="member-info">
-                            <h5>Ahmed Kamel</h5>
-                            <p>Frontend Developer</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('sarah_tamer.png');"></div>
-                        <div class="member-info">
-                            <h5>Sarah Tamer</h5>
-                            <p>Frontend Developer</p>
-                        </div>
-                    </div>
-                    <div class="member-card member-card--with-image fade-in">
-                        <div class="member-card-bg" style="background-image: url('abdallah_ismail.png');"></div>
-                        <div class="member-info">
-                            <h5>Abdallah Ismail</h5>
-                            <p>Data Analyst</p>
-                    </div>
-                </div>
-                <div class="scroll-hint" id="scrollHint" onclick="scrollMembers()">
-                    <span style="cursor: pointer;">&lt; drag or scroll to navigate &gt;</span>
-                </div>
-            </div>
-        </section>
+        <section id="team" style="padding-top: 4rem; text-align: center;">
+    <div class="section-header fade-in" style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="text-align: center; margin-bottom: 0.3rem;">Meet The Team</h2>
+        <p style="text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 0;">The brilliant minds behind AURA Smart Health Monitor</p>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
+        <img src="team.png" alt="AURA Team" style="width: 100%; max-width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+    </div>
+</section>
 
         
 
@@ -2079,7 +1565,7 @@
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="timeline-time">10:45 AM</div>
+                    <div class="timeline-time">8:45 AM</div>
                     <h3>Guest Arrival</h3>
                     <p>Registration and welcome refreshments in the main lobby. Please arrive 15 minutes early to get settled.</p>
                 </div>
@@ -2088,7 +1574,7 @@
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="timeline-time">11:00 AM</div>
+                    <div class="timeline-time">9:00 AM</div>
                     <h3>Opening Remarks</h3>
                     <p>Introduction by Dr. Hanan Amer, followed by a brief overview of the AURA project scope and objectives.</p>
                 </div>
@@ -2097,7 +1583,7 @@
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="timeline-time">11:15 AM</div>
+                    <div class="timeline-time">9:15 AM</div>
                     <h3>Project Presentation</h3>
                     <p>Main presentation including live demo of the AURA smartwatch, mobile app, web dashboard, and ML analytics.</p>
                 </div>
@@ -2106,7 +1592,7 @@
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="timeline-time">12:00 PM</div>
+                    <div class="timeline-time">10:00 AM</div>
                     <h3>Q&A Session</h3>
                     <p>Question and answer session with the examination panel and audience members.</p>
                 </div>
@@ -2115,7 +1601,7 @@
             <div class="timeline-item fade-in">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="timeline-time">12:30 PM</div>
+                    <div class="timeline-time">10:30 AM</div>
                     <h3>Networking & Celebration</h3>
                     <p>Light refreshments, photo opportunities, and celebration with the AURA team and faculty.</p>
                 </div>
@@ -2422,7 +1908,7 @@
 
         // ==================== COUNTDOWN ====================
         
-        const targetDate = new Date('July 11, 2026 11:00:00').getTime();
+        const targetDate = new Date('July 7, 2026 09:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -2590,78 +2076,7 @@
             });
         });
     
-        // ==================== HORIZONTAL SCROLL FOR TEAM MEMBERS ====================
-
-        const membersWrapper = document.querySelector('.members-scroll-wrapper');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        membersWrapper.addEventListener('mousedown', (e) => {
-            isDown = true;
-            membersWrapper.style.cursor = 'grabbing';
-            startX = e.pageX - membersWrapper.offsetLeft;
-            scrollLeft = membersWrapper.scrollLeft;
-        });
-
-        membersWrapper.addEventListener('mouseleave', () => {
-            isDown = false;
-            membersWrapper.style.cursor = 'grab';
-        });
-
-        membersWrapper.addEventListener('mouseup', () => {
-            isDown = false;
-            membersWrapper.style.cursor = 'grab';
-        });
-
-        membersWrapper.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - membersWrapper.offsetLeft;
-            const walk = (x - startX) * 2;
-            membersWrapper.scrollLeft = scrollLeft - walk;
-        });
-
-        // Touch support for mobile
-        membersWrapper.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].pageX - membersWrapper.offsetLeft;
-            scrollLeft = membersWrapper.scrollLeft;
-        }, {passive: true});
-
-        membersWrapper.addEventListener('touchmove', (e) => {
-            const x = e.touches[0].pageX - membersWrapper.offsetLeft;
-            const walk = (x - startX) * 2;
-            membersWrapper.scrollLeft = scrollLeft - walk;
-        }, {passive: true});
-
-        // Scroll hint click functionality
-        let scrollDirection = 1;
-        function scrollMembers() {
-            const maxScroll = membersWrapper.scrollWidth - membersWrapper.clientWidth;
-            if (membersWrapper.scrollLeft >= maxScroll - 10) {
-                scrollDirection = -1;
-            } else if (membersWrapper.scrollLeft <= 10) {
-                scrollDirection = 1;
-            }
-            membersWrapper.scrollBy({
-                left: 300 * scrollDirection,
-                behavior: 'smooth'
-            });
-        }
-
-        // Auto-scroll hint animation
-        function animateScrollHint() {
-            const hint = document.getElementById('scrollHint');
-            if (hint) {
-                hint.style.opacity = '0.6';
-                setTimeout(() => {
-                    hint.style.opacity = '1';
-                }, 1000);
-            }
-        }
-        setInterval(animateScrollHint, 2000);
-
-</script>
+        </script>
 
     </div>
 </body>
